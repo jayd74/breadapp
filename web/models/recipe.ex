@@ -3,11 +3,14 @@ defmodule Breadapp.Recipe do
 
   schema "recipes" do
     field :title, :string
+    field :ingredients, :string
+    field :instructions, :string
   end
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title])
-    |> validate_required([:title])
+    |> cast(params, [:title, :instructions, :ingredients])
+    |> validate_required([:title, :instructions, :ingredients])
   end
+
 end

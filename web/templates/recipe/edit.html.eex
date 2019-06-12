@@ -1,7 +1,13 @@
 <%= form_for @changeset, recipe_path(@conn, :update, @recipe), fn f -> %>
   <div class="form-group">
     <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+    <%= text_input f, :ingredients, placeholder: "Ingredients", class: "form-control" %>
+    <%= text_input f, :instructions, placeholder: "Instructions", class: "form-control" %>
+
     <%= error_tag f, :title %>
+    <%= error_tag f, :instructions %>
+    <%= error_tag f, :ingredients %>
+
   </div>
 
   <%= submit "Save Recipe", class: "btn btn-primary" %>
