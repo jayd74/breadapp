@@ -21,6 +21,13 @@ defmodule Breadapp.Router do
     resources "/", RecipeController
   end
 
+  scope "/auth", Breadapp do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Breadapp do
   #   pipe_through :api
