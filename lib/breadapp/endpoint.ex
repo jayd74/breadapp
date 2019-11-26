@@ -27,6 +27,9 @@ defmodule Breadapp.Endpoint do
     pass: ["*/*"],
     json_decoder: Poison
 
+  plug Absinthe.Plug,
+    schema: Breadapp.Schema
+
   plug Plug.MethodOverride
   plug Plug.Head
 
